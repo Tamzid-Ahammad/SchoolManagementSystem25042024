@@ -1,0 +1,46 @@
+<h4 class="text-center">
+    Exam Subjects
+</h4>
+<div class="d-flex justify-content-end">
+    <a routerLink="/examSubject/create" class="btn btn-info">Add New</a>
+    <button class="btn btn-primary" (click)="LoadData()">Refresh</button>
+</div>
+    <hr />
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ExamScheduleStandardName</th>
+                <th>ExamTypeName</th>
+
+                <th>SubjectName</th>
+                <th>SubjectCode</th>
+                <th>ExamDate</th>
+                <th>ExamStartTime</th>
+                <th>ExamEndTime</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let examSubject of examsubjects">
+                <td>{{examSubject.examSubjectId}}</td>
+                <td>{{examSubject.examScheduleStandard.examScheduleStandardName}}</td>
+                <td>{{examSubject.examType.examTypeName| uppercase}}</td>
+
+                <td>{{examSubject.subject.subjectName | uppercase}}</td>
+                <td>{{examSubject.subject.subjectCode }}</td>
+                <td>{{examSubject.examDate | date}}</td>
+                <td>{{ examSubject.examStartTime | date:'HH:mm' }}</td>
+                <td>{{ examSubject.examEndTime | date:'HH:mm' }}</td>
+
+
+
+
+                <td class="btn-group">
+                    <a [routerLink]="['/examSubject/edit/', examSubject.examSubjectId]" class="btn btn-warning">Edit</a>
+                    <button class="btn btn-danger" (click)="DeleteExamSubject(examSubject)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+

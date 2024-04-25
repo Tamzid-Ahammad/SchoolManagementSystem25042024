@@ -1,0 +1,36 @@
+<div class="w-100">
+    <h4 class="text-center">
+        Exam Schedule Standards
+    </h4>
+    <div class="d-flex justify-content-end">
+        <a routerLink="/examScheduleStandard/create" class="btn btn-info">Add New</a>
+    </div>
+
+    <table class="table table-bordered table-responsive table-hover mt-2">
+        <thead>
+            <tr>
+                <th>Sl.</th>
+                <th>Exam Schedule Standard Name</th>
+                <th>Standard Name</th>
+                <th>Exam Schedule Name</th>
+                <th>Exam Subjects</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let examScheduleStandard of examScheduleStandards; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{examScheduleStandard.examScheduleStandardName}}</td>
+                <td>{{examScheduleStandard.standardName}}</td>
+                <td>{{examScheduleStandard.examScheduleName}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let examSubject of examScheduleStandard.examSubjects; let idx = index">
+                            Subject Name: {{examSubject.subjectName}}
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
